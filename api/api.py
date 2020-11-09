@@ -18,12 +18,6 @@ fields = ["customer_number", "day_part", "first_seen_utc", "model_id", "tts"]
 df = pd.read_csv('./data_aug27.csv', usecols=fields)
 df.rename(columns={"first_seen_utc": "date"}, inplace=True)
 
-# MONTH = df.date.iloc[0].month
-# START_DATE_OBJ = df.date.iloc[0]
-# END_DATE_OBJ = df.date.iloc[-1]
-# START_DATE_OBJ = datetime.datetime.strptime(str(df.date.iloc[0]), '%Y-%m-%d %H:%M:%S')
-# END_DATE_OBJ = datetime.datetime.strptime(str(df.date.iloc[-1]), '%Y-%m-%d %H:%M:%S')
-
 START_DATE_OBJ = datetime.fromtimestamp(df.date.iloc[0])
 END_DATE_OBJ = datetime.fromtimestamp(df.date.iloc[-1])
 MONTH = START_DATE_OBJ.month
@@ -44,6 +38,15 @@ for i in range(0,25):
 	else:
 		val = (i%12)
 	hour_mapping[i] = str(val) + part
+
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
+
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 @app.route('/time')
 def get_current_time():
