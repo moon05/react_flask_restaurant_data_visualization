@@ -3,16 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "luxon": "^1.25.0",
+    "moment": "^2.29.1",
     "react": "^17.0.1",
+    "react-datepicker": "^3.3.0",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
+    "react-tabs": "^3.1.1",
+    "recharts": "^1.8.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-api": "cd api && python3 -m flask run --no-debugger",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -34,5 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
