@@ -1,1 +1,1 @@
-web: bin/root
+web: node server.js
