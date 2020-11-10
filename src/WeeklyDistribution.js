@@ -38,7 +38,7 @@ function WeeklyDistribution(props) {
   let weeklyDataObj = [];
 
   useEffect(() => {
-    fetch('/getTTSDistribution')
+    fetch('https://flask-restaurant-backend.herokuapp.com/getTTSDistribution')
       .then(res => res.json())
         .then(data => {
           // dictionaries of dataframes level here
