@@ -15,7 +15,7 @@ app = Flask(__name__, static_folder='../build', static_url_path='/')
 
 
 fields = ["customer_number", "day_part", "first_seen_utc", "model_id", "tts"]
-df = pd.read_csv('./data_aug27.csv', usecols=fields)
+df = pd.read_csv('./api/data_aug27.csv', usecols=fields, encoding='utf-8')
 df.rename(columns={"first_seen_utc": "date"}, inplace=True)
 
 START_DATE_OBJ = datetime.fromtimestamp(df.date.iloc[0])
