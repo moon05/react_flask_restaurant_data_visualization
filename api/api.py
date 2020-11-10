@@ -200,3 +200,41 @@ def get_avg_tts_by_daypart():
 
 	return result
 
+@app.route('/getTTSDistribution')
+def get_dist_tts():
+
+	D = { 0:
+			{
+				540: {'tts': 639, 'count': 1, 'name': 639}, 
+		 		541: {'tts': 632, 'count': 1, 'name': 632}, 
+		 		542: {'tts': 331, 'count': 1, 'name': 331},
+	 		},
+		1:
+			{
+			543: {'tts': 332, 'count': 1, 'name': 332}, 
+			544: {'tts': 627, 'count': 1, 'name': 627}, 
+			},
+		2:
+			{
+			545: {'tts': 335, 'count': 1, 'name': 335}, 
+			546: {'tts': 336, 'count': 1, 'name': 336}, 
+			547: {'tts': 1028, 'count': 1, 'name': 1028}
+			}
+	}
+
+	newDF = df
+
+	result = {}
+	weeks = [g.reset_index() for n, g in df.groupby(pd.Grouper(key='date',freq='W'))]
+
+	for j in range(len(weeks)):
+		a = weeks[j].tts.value_counts()
+		a = a.to_frame()
+		a.reset_index(inplace=True)
+		a.rename(columns={"index": "tts", "tts": "count"}, inplace=True)
+		z = a.to_dict("index")
+		for i in range(len(z)):
+			z[i]["name"]= z[i]["tts"]
+		result[j] = z
+	return result
+

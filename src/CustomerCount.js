@@ -95,7 +95,7 @@ function CustomerCount(props) {
 		
 	return (
 
-		<Grid container spacing={12} direction="row" justify="center" alignItems="center">
+		<Grid container spacing={12} direction="row" justify="center" alignItems="center" style={{paddingTop: 15}}>
 		    <Grid item container sm={10} direction="row" justify="flex-end" alignItems="center">
 			    <DatePicker 
 			        selected={(date instanceof Date && !isNaN(date)) ? date : new Date()}

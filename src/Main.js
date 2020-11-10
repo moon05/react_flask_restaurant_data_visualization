@@ -9,6 +9,7 @@ import {DateTime} from "luxon";
 import CustomerCount from './CustomerCount';
 import AvgTTS from './AvgTTS';
 import DayPartTTS from "./DayPartTTS"
+import WeeklyDistribution from "./WeeklyDistribution"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 import 'react-tabs/style/react-tabs.css';
@@ -49,14 +50,15 @@ function Main() {
         		<h1> Restaurant Data Visualization</h1>
         	</div>
     	</Grid>
-    	<Grid item container xs={10} direction="row" justify="center">
-	        <Grid item container xs={12} direction="row" justify="center">
+    	<Grid container xs={10} direction="row" justify="center" style={{paddingTop: 5}}>
+	        <Grid item container xs={12} direction="row" justify="center" style={{paddingTop: 5}}>
 		        <Tabs>
 
 		        	<TabList>
 		        		<Tab>Average Customer Data By Hour</Tab>
 		      			<Tab>Average TTS Data By Hour</Tab>
 		      			<Tab>Average TTS By Day Part</Tab>
+		      			<Tab>Weekly TTS Distribution</Tab>
 		        	</TabList>
 
 		        	<TabPanel>
@@ -69,6 +71,10 @@ function Main() {
 
 		        	<TabPanel>
 		        		<DayPartTTS />
+		        	</TabPanel>
+
+		        	<TabPanel>
+		        		<WeeklyDistribution />
 		        	</TabPanel>
 
 		        </Tabs>
