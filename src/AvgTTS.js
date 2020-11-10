@@ -49,7 +49,7 @@ function AvgTTS(props) {
   let avgttsObj = {};
 
   useEffect(() => {
-    fetch('/getAvgTTS')
+    fetch('https://flask-restaurant-backend.herokuapp.com/getAvgTTS')
       .then(res => res.json())
         .then(data => {
           Object.keys(data).map((key, value) => 

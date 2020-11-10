@@ -48,7 +48,7 @@ function DayPartTTs(props) {
 
   let dayPartDataObj = {};
   useEffect(() => {
-    fetch('/getAvgTTSByDayPart')
+    fetch('https://flask-restaurant-backend.herokuapp.com/getAvgTTSByDayPart')
       .then(res => res.json())
         .then(data => {
           Object.keys(data).map((key, value) => 

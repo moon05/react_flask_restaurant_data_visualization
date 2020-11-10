@@ -48,7 +48,7 @@ function CustomerCount(props) {
 
   let customerCountObj = {};
   useEffect(() => {
-    fetch('/getCustomerCount')
+    fetch('https://flask-restaurant-backend.herokuapp.com/getCustomerCount')
       .then(res => res.json())
         .then(data => {
           Object.keys(data).map((key, value) => 
