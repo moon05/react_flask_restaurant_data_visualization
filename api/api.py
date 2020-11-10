@@ -11,7 +11,7 @@ from datetime import datetime
 pp = pprint.PrettyPrinter()
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../build', static_url_path='/')
 
 
 fields = ["customer_number", "day_part", "first_seen_utc", "model_id", "tts"]
@@ -52,10 +52,6 @@ def index():
 def get_current_time():
 	return {'time': time.time()}
 
-@app.route('/getStartEndDates')
-def get_start_end_dates():
-	date_tuple = (START_DATE_OBJ, END_DATE_OBJ)
-	return (jsonify(date_tuple))
 
 
 @app.route('/getCustomerCount')
@@ -220,3 +216,5 @@ def get_dist_tts():
 		result[j] = z
 	return result
 
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
