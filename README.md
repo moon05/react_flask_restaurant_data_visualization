@@ -1,6 +1,6 @@
 # React App for Restaurant Data Vissuazation with Flask Backend
 
-Please visit https://restaurant-viz.herokuapp.com/ for a live demo. (Currently not working because of some same server dyno issues?)
+Please visit https://restaurant-viz.herokuapp.com/ for a live demo.
 
 I used React for frontend, Recharts as the graphing library, very basic DatetimePicker, React-tabs for the naviagtion and mostly Pandas
 for dealing with the csv data.
